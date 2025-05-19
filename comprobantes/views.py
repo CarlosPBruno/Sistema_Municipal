@@ -12,7 +12,6 @@ from .forms import ComprobanteForm, ProveedorForm, ComprobanteFilterForm
 from auditoria.models import LogAuditoria
 from django.contrib.contenttypes.models import ContentType
 from .forms import CargaExcelForm
-import pandas as pd
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 import io
