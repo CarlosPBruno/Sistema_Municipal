@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Carga Masiva{% endblock %}
+{% block page_title %}Cargar Comprobantes desde Excel{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="mb-3">
+                    {{ form.archivo.label_tag }}
+                    {{ form.archivo }}
+                    {% for error in form.archivo.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="text-end">
+                    <a href="{% url 'comprobante_list' %}" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-upload me-1"></i>Cargar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
